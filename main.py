@@ -1,6 +1,6 @@
 import string
 import random 
-
+from math import log2, log1p
 
 def generate_password():
 
@@ -25,3 +25,10 @@ def generate_password():
 generated_password = generate_password()
 
 print(generated_password)
+
+possible_chars = len(string.ascii_letters + string.digits + "!@#$%^&*()")
+password_length = len(generated_password)
+password_entropy = password_length * log2(possible_chars)
+
+print(password_entropy)
+# password is secure when ent > 50
