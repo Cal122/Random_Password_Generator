@@ -1,10 +1,10 @@
 import string
 import random 
 
-characters = list(string.ascii_letters + string.digits + string.punctuation) 
 
 def generate_password():
 
+    characters = list(string.ascii_letters + string.digits) 
     random.shuffle(characters)
     password = []
 
@@ -15,8 +15,10 @@ def generate_password():
 
         for n in range(pswrd_len_input):
             password.append(random.choice(characters))
-        return str(password)
+        return "".join(password)
     
     return None
 
-print(generate_password())
+generated_password = generate_password()
+
+print(generated_password)
