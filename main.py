@@ -23,12 +23,24 @@ def generate_password():
     return None
 
 generated_password = generate_password()
-
-print(generated_password)
+print()
+print(f"Password: {generated_password}")
 
 possible_chars = len(string.ascii_letters + string.digits + "!@#$%^&*()")
 password_length = len(generated_password)
 password_entropy = password_length * log2(possible_chars)
+attempts_needed = round(2**password_entropy)
 
-print(password_entropy)
+print()
+
+if password_entropy > 50:
+    print("Strong password")
+else:
+    print("Weak password")
+
+print()
+print(f"It would take {attempts_needed} attepmts to brute force attack this password.")
+print()
+
 # password is secure when ent > 50
+# N = 2^E
